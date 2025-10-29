@@ -1,0 +1,22 @@
+.skills-button {
+  margin-top: 20px; /* espace sous le texte */
+  display: flex;
+  justify-content: flex-start; /* aligne à gauche */
+}
+
+.skills-button button {
+  background-color: rgba(255, 215, 0, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  color: rgb(151, 231, 198);
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* effet hover */
+.skills-button button:hover {
+  background-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-3px);
+}

@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: rgba(0, 0, 0, 0.5); /* effet translucide sur l’image */
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.header-overlay {
+  width: 95%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  color: #70a0be;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.header-title {
+  background: transparent;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  appearance: none;
+}
+
+.header-title {
+  background: transparent;
+  margin: 0;
+}
+
+.nav-link:hover {
+  color: #9babdf;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #a95d5d;
+  padding-bottom: 2px;
+}
+
+main {
+  height: 600px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  color: rgb(115, 138, 190);
+}
+
+.header-buttons a {
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* effet fluide */
+}
+
+/* couleur par défaut (lien normal et visité) */
+.header-buttons a:link,
+.header-buttons a:visited {
+  color: rgb(115, 138, 190);
+}
+
+/* survol */
+.header-buttons a:hover {
+  color: #9babdf; /* bleu clair au survol */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* clic actif (optionnel, petit effet quand on clique) */
+.header-buttons a:active {
+  color: #c6d3ff;
+}

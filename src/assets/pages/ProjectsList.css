@@ -1,0 +1,117 @@
+/* Page ProjectsList */
+.projectslist-page-buttons {
+  background-image: url("/public//projects-background-photo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px 20px;
+  color: rgb(227, 220, 220);
+  text-align: center;
+  backdrop-filter: blur(3px);
+}
+
+.projectslist-page-buttons a {
+  color: #d3d0e5;
+  text-decoration: none;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+}
+
+/* Conteneur des boutons */
+.projectslist-page-buttons l {
+  display: flex;
+  flex-wrap: wrap; /* permet le retour à la ligne */
+  justify-content: center;
+
+  max-width: 900px;
+  margin-top: 40px;
+}
+.projects-h1 {
+  color: rgb(77, 77, 207);
+  margin-bottom: 20px;
+}
+
+.projectslist-page-buttons a:hover {
+  color: #fff5e1; /* couleur plus claire au survol */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+/* Boutons individuels */
+.projectslist-page-buttons button {
+  background-color: rgba(222, 101, 36, 0.25);
+  border: 2px solid rgba(75, 137, 81, 0.299);
+  color: #ddd6d6;
+  font-size: 1rem;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Effet hover */
+.projectslist-page-buttons button:hover {
+  background-color: rgba(255, 77, 0, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Effet d'apparition douce des boutons */
+.projectslist-page-buttons button {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Animation décalée pour chaque bouton */
+.projectslist-page-buttons button:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.projectslist-page-buttons button:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.projectslist-page-buttons button:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.projectslist-page-buttons button:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-image {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+.button-description {
+  background-color: rgb(169, 171, 154);
+  opacity: 0.7;
+  border-radius: 10px;
+  color: rgb(36, 36, 206);
+  padding: 10px;
+}

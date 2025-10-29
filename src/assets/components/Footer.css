@@ -1,0 +1,13 @@
+.footer {
+  position: fixed; /* colle en bas de la fenêtre */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(210, 193, 87);
+  padding: 15px 0;
+  background-color: rgba(63, 103, 63, 0.3);
+  font-size: 1.2rem;
+  z-index: 1000; /* au-dessus du fond */
+}
