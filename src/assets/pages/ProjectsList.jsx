@@ -54,7 +54,7 @@ const ProjectsList = () => {
           </div>
 
           <a
-            href="https://drive.google.com/file/d/1ImUuYcxOxj14Bn8Zd1_ZIo-6eXw8mfXW/view?usp=sharing"
+            href="https://docs.google.com/presentation/d/1-PCx8380uhbHAnSoJB0bqgAv_5i23BUe/edit?usp=sharing&ouid=113097425318546044692&rtpof=true&sd=true"
             target="_blank"
             rel="noopener noreferrer"
             className="drive-link"
