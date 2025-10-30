@@ -1,80 +1,135 @@
 import "./ProjectsList.css";
 
 const ProjectsList = () => {
+  // ✅ Fonctions pour ouvrir les liens externes dans un nouvel onglet
+  const openGitHubFocusMe = () => {
+    window.open(
+      "https://github.com/Nisrine7515/FOCUSme-app", // 🔗 Mets ici le bon lien GitHub
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const openMarvelApp = () => {
+    window.open(
+      "https://marvelapi-front-reactjs.netlify.app/",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const openLeafletApp = () => {
+    window.open(
+      "https://testing-leaf-let.netlify.app/",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
     <div className="projectslist-page-buttons">
       <div className="projects-h1">Click to see my projects ↴</div>
+
       <ul className="allprojects-buttons">
-        <button>
-          <a
-            href="https://github.com/Nisrine7515/pm-project-FocusMe"
-            className="nav-link"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* -------------------- FOCUSME PROJECT -------------------- */}
+        <li className="project-item">
+          <button
+            type="button"
+            onClick={openGitHubFocusMe}
+            className="nav-link project-button"
           >
             FOCUSme
-            <p className="button-description">
-              <p>
-                A minimalist productivity app designed to help users build deep
-                focus habits and manage their time effectively.{" "}
-              </p>
-              <p>
-                It uses a clean Pomodoro-style timer to structure work sessions,
-                reduce distractions, and track progress over time.
-              </p>
+          </button>
+
+          <div className="button-description">
+            <p>
+              A minimalist productivity app designed to help users build deep
+              focus habits and manage their time effectively.
+            </p>
+            <p>
+              It uses a clean Pomodoro-style timer to structure work sessions,
+              reduce distractions, and track progress over time.
             </p>
             <p>react native & js</p>
-          </a>
-          {/* <img
-            src={vintedImage}
-            alt="Vinted Replique"
-            className="project-image"
-          /> */}
-        </button>
-        <button>
+          </div>
+
           <a
-            href="https://marvelapi-front-reactjs.netlify.app/"
-            className="nav-link"
+            href="https://drive.google.com/file/d/1ImUuYcxOxj14Bn8Zd1_ZIo-6eXw8mfXW/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
+            className="drive-link"
+          >
+            CLICK to see fictional launching as a product manager for FOCUSme
+          </a>
+
+          <div>
+            <img
+              src="/product-image-focus.png"
+              alt="focus"
+              className="project-image"
+            />
+          </div>
+        </li>
+
+        {/* -------------------- MARVEL API PROJECT -------------------- */}
+        <li className="project-item">
+          <button
+            type="button"
+            onClick={openMarvelApp}
+            className="nav-link project-button"
           >
             API MARVEL
-            <p className="button-description">
-              <p>
-                A React website powered by the Marvel API that lets users
-                search, view, and explore their favorite Marvel characters,
-                comics, and stories.{" "}
-              </p>
-              <p>
-                Built with clean JavaScript and API integration to display
-                dynamic superhero data in real time.
-              </p>
+          </button>
+
+          <div className="button-description">
+            <p>
+              A React website powered by the Marvel API that lets users search,
+              view, and explore their favorite Marvel characters, comics, and
+              stories.
+            </p>
+            <p>
+              Built with clean JavaScript and API integration to display dynamic
+              superhero data in real time.
             </p>
             <p>react & js</p>
-          </a>
-          {/* <img src={marvelImage} alt="API Marvel" className="project-image" /> */}
-        </button>
+          </div>
 
-        <button>
-          <a
-            href="https://testing-leaf-let.netlify.app/"
-            className="nav-link"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div>
+            {/* <img
+              src="/product-image-marvel.png"
+              alt="API Marvel"
+              className="project-image"
+            /> */}
+          </div>
+        </li>
+
+        {/* -------------------- LEAFLET PROJECT -------------------- */}
+        <li className="project-item">
+          <button
+            type="button"
+            onClick={openLeafletApp}
+            className="nav-link project-button"
           >
             TESTING LEAFLET
-            <p className="button-description">
-              Interactive map built, allowing users to explore locations,
-              visualize data, and interact with markers in real time.
+          </button>
+
+          <div className="button-description">
+            <p>
+              Interactive map built with React and Leaflet, allowing users to
+              explore locations, visualize data, and interact with markers in
+              real time.
             </p>
             <p>react & js</p>
-          </a>
-          {/* <img
-            src={leafImage}
-            alt="Testing Leaf Let"
-            className="project-image"
-          /> */}
-        </button>
+          </div>
+
+          <div>
+            {/* <img
+              src="/product-image-leaflet.png"
+              alt="Testing Leaflet"
+              className="project-image"
+            /> */}
+          </div>
+        </li>
       </ul>
     </div>
   );

@@ -115,3 +115,7 @@
   color: rgb(36, 36, 206);
   padding: 10px;
 }
+
+.focus {
+  color: blue;
+}
