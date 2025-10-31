@@ -98,8 +98,8 @@
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas:
-      "brand ctas"
-      "nav   nav";
+      "brand brand"
+      "nav   ctas";
     align-items: center;
     padding: 0.6rem 0;
     gap: 0.4rem 0.6rem;
@@ -108,13 +108,11 @@
   .hdr__brand {
     grid-area: brand;
   }
-
-  .hdr__ctas {
-    grid-area: ctas;
-  }
-
   .hdr__nav {
     grid-area: nav;
+  }
+  .hdr__ctas {
+    grid-area: ctas;
   }
 
   .hdr__nav {
@@ -138,7 +136,6 @@
   .hdr__nav::-webkit-scrollbar {
     height: 6px;
   }
-
   .hdr__nav::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.18);
     border-radius: 999px;
@@ -151,12 +148,18 @@
   }
 
   .hdr__ctas {
-    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
   }
 
   .hdr__ctas > * {
     min-height: 44px;
-    padding: 0.5rem 0.65rem;
+    padding: 0.55rem 0.65rem;
+    border-radius: 0.5rem;
+    line-height: 1;
+    font-size: 0.95rem;
   }
 
   .hdr__logo {
@@ -168,7 +171,6 @@
     position: relative;
     color: transparent;
   }
-
   .hdr__title::before {
     content: "PM - Nisrine SNACEL";
     color: var(--text);
@@ -189,16 +191,13 @@
     letter-spacing: 0.01em;
     font-size: 0.95rem;
   }
-
   .hdr__title::before {
     font-size: 0.95rem;
     letter-spacing: 0.01em;
   }
-
   .hdr__nav {
     gap: 0.5rem;
   }
-
   .hdr__link {
     padding: 0.5rem 0.55rem;
     font-size: 0.9rem;
@@ -209,7 +208,6 @@
   .btn--icon-only .btn__label {
     display: none;
   }
-
   .btn--icon-only {
     aspect-ratio: 1/1;
     padding: 0.6rem;
