@@ -1,4 +1,3 @@
-/* ---- Base (inchangé dans l'esprit) ---- */
 .hdr {
   position: sticky;
   top: env(safe-area-inset-top, 0);
@@ -47,7 +46,7 @@
 }
 
 .hdr__link {
-  padding: 0.55rem 0.75rem; /* ~44px min height */
+  padding: 0.55rem 0.75rem;
   min-height: 44px;
   color: var(--muted);
   border-radius: 0.5rem;
@@ -73,7 +72,6 @@
   flex-shrink: 0;
 }
 
-/* ---- Animations douces (accessibles) ---- */
 @media (prefers-reduced-motion: no-preference) {
   .hdr__link,
   .hdr__ctas > * {
@@ -82,7 +80,6 @@
   }
 }
 
-/* ====== Ergonomie tablette (<= 900px) ====== */
 @media (max-width: 900px) {
   .hdr__inner {
     row-gap: 0.5rem;
@@ -96,8 +93,6 @@
   }
 }
 
-/* ====== Ergonomie mobile (<= 640px) ====== */
-/* Objectif : 2 lignes, nav scrollable avec snap, bords en fondu, CTAs compactes */
 @media (max-width: 640px) {
   .hdr__inner {
     display: grid;
@@ -113,21 +108,22 @@
   .hdr__brand {
     grid-area: brand;
   }
+
   .hdr__ctas {
     grid-area: ctas;
   }
+
   .hdr__nav {
     grid-area: nav;
   }
 
-  /* Nav horizontale défilable + snap + masque de bords */
   .hdr__nav {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
     gap: 0.6rem;
-    padding-bottom: 0.2rem; /* éviter l’overlay de scrollbar */
+    padding-bottom: 0.2rem;
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     mask-image: linear-gradient(
@@ -142,6 +138,7 @@
   .hdr__nav::-webkit-scrollbar {
     height: 6px;
   }
+
   .hdr__nav::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.18);
     border-radius: 999px;
@@ -153,44 +150,66 @@
     scroll-snap-align: start;
   }
 
-  /* CTAs compactes mais cliquables (≥44px) */
   .hdr__ctas {
     gap: 0.5rem;
   }
+
   .hdr__ctas > * {
     min-height: 44px;
     padding: 0.5rem 0.65rem;
   }
 
-  /* Légère réduction logo */
   .hdr__logo {
     width: 24px;
     height: 24px;
   }
+
+  .hdr__title {
+    position: relative;
+    color: transparent;
+  }
+
+  .hdr__title::before {
+    content: "PM - Nisrine SNACEL";
+    color: var(--text);
+    letter-spacing: 0.02em;
+    font-size: 1rem;
+    line-height: 1.1;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+  }
 }
 
-/* ====== Très petit mobile (<= 360px) ====== */
-/* On préserve le design en compressant l’espace, pas le look */
 @media (max-width: 360px) {
   .hdr__title {
     letter-spacing: 0.01em;
     font-size: 0.95rem;
   }
+
+  .hdr__title::before {
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+
   .hdr__nav {
     gap: 0.5rem;
   }
+
   .hdr__link {
     padding: 0.5rem 0.55rem;
     font-size: 0.9rem;
   }
 }
 
-/* ---- Utilitaires optionnels (si besoin d’icônes-only) ---- */
-/* Ajoute .btn--icon-only à un bouton dans .hdr__ctas pour masquer le label sur mobile */
 @media (max-width: 640px) {
   .btn--icon-only .btn__label {
     display: none;
   }
+
   .btn--icon-only {
     aspect-ratio: 1/1;
     padding: 0.6rem;
