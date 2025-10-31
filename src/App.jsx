@@ -1,34 +1,29 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import ContactModal from "./components/ContactModal.jsx";
+import Home from "./pages/Home.jsx";
 
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// library.add(faEnvelope, faKey, faListAlt);
-// import {
-//   faEnvelope,
-//   faKey,
-//   faListAlt,
-// } from "@fortawesome/free-solid-svg-icons";
-// import "@fontsource/kanit";
-// import "@fontsource/kanit/700.css";
-import "./App.css";
-import Header from "./assets/components/Header";
-import Home from "./assets/pages/Home";
-import SkillsList from "./assets/pages/SkillsList";
+export default function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
-import MyProjects from "./assets/components/MyProjects";
-import ProjectsList from "./assets/pages/ProjectsList";
-
-function App() {
   return (
-    <Router>
+    <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="home" element={<Home />} />
-        <Route path="skills" element={<SkillsList />} />
-        <Route path="MyProjects" element={<MyProjects />} />
-        <Route path="ProjectsList" element={<ProjectsList />} />
+        <Route
+          path="/"
+          element={<Home onContactClick={() => setIsContactOpen(true)} />}
+        />
       </Routes>
-    </Router>
+      <Footer onContactClick={() => setIsContactOpen(true)} />
+
+      <ContactModal
+        open={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        onSubmitted={() => setIsContactOpen(false)}
+      />
+    </>
   );
 }
-export default App;

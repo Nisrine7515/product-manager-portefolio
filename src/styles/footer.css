@@ -1,0 +1,15 @@
+.ftr {
+  border-top: 1px solid var(--border);
+  background: #0f0731;
+}
+.ftr__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.ftr__copy {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+}

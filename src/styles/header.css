@@ -1,0 +1,51 @@
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(25, 23, 79, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.hdr__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+}
+.hdr__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+}
+.hdr__logo {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 10px rgba(110, 168, 254, 0.35));
+}
+.hdr__title {
+  letter-spacing: 0.02em;
+}
+.hdr__nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.hdr__link {
+  padding: 0.5rem 0.7rem;
+  color: var(--muted);
+  border-radius: 0.5rem;
+}
+.hdr__link:hover {
+  color: var(--text);
+  background: #cfb166;
+}
+.is-active {
+  color: var(--text);
+  background: #131828;
+}
+.hdr__ctas {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
