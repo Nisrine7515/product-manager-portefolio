@@ -1,51 +1,198 @@
+/* ---- Base (inchangé dans l'esprit) ---- */
 .hdr {
   position: sticky;
-  top: 0;
+  top: env(safe-area-inset-top, 0);
   z-index: 20;
   background: rgba(25, 23, 79, 0.7);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
+  padding-left: max(1rem, env(safe-area-inset-left, 0));
+  padding-right: max(1rem, env(safe-area-inset-right, 0));
 }
+
 .hdr__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.8rem 0;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
+
 .hdr__brand {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   font-weight: 700;
+  flex-shrink: 0;
 }
+
 .hdr__logo {
   width: 28px;
   height: 28px;
   filter: drop-shadow(0 0 10px rgba(110, 168, 254, 0.35));
 }
+
 .hdr__title {
   letter-spacing: 0.02em;
+  font-size: clamp(0.95rem, 1vw + 0.6rem, 1.05rem);
 }
+
 .hdr__nav {
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
+
 .hdr__link {
-  padding: 0.5rem 0.7rem;
+  padding: 0.55rem 0.75rem; /* ~44px min height */
+  min-height: 44px;
   color: var(--muted);
   border-radius: 0.5rem;
+  white-space: nowrap;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
 }
+
 .hdr__link:hover {
   color: var(--text);
   background: #cfb166;
 }
+
 .is-active {
   color: var(--text);
   background: #131828;
 }
+
 .hdr__ctas {
   display: flex;
   gap: 0.6rem;
   align-items: center;
+  flex-shrink: 0;
+}
+
+/* ---- Animations douces (accessibles) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .hdr__link,
+  .hdr__ctas > * {
+    transition: background-color 160ms ease, color 160ms ease,
+      opacity 160ms ease;
+  }
+}
+
+/* ====== Ergonomie tablette (<= 900px) ====== */
+@media (max-width: 900px) {
+  .hdr__inner {
+    row-gap: 0.5rem;
+  }
+  .hdr__nav {
+    gap: 0.75rem;
+  }
+  .hdr__logo {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* ====== Ergonomie mobile (<= 640px) ====== */
+/* Objectif : 2 lignes, nav scrollable avec snap, bords en fondu, CTAs compactes */
+@media (max-width: 640px) {
+  .hdr__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand ctas"
+      "nav   nav";
+    align-items: center;
+    padding: 0.6rem 0;
+    gap: 0.4rem 0.6rem;
+  }
+
+  .hdr__brand {
+    grid-area: brand;
+  }
+  .hdr__ctas {
+    grid-area: ctas;
+  }
+  .hdr__nav {
+    grid-area: nav;
+  }
+
+  /* Nav horizontale défilable + snap + masque de bords */
+  .hdr__nav {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    gap: 0.6rem;
+    padding-bottom: 0.2rem; /* éviter l’overlay de scrollbar */
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 12px,
+      black calc(100% - 12px),
+      transparent 100%
+    );
+  }
+
+  .hdr__nav::-webkit-scrollbar {
+    height: 6px;
+  }
+  .hdr__nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
+  .hdr__link {
+    font-size: 0.95rem;
+    padding: 0.55rem 0.65rem;
+    scroll-snap-align: start;
+  }
+
+  /* CTAs compactes mais cliquables (≥44px) */
+  .hdr__ctas {
+    gap: 0.5rem;
+  }
+  .hdr__ctas > * {
+    min-height: 44px;
+    padding: 0.5rem 0.65rem;
+  }
+
+  /* Légère réduction logo */
+  .hdr__logo {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ====== Très petit mobile (<= 360px) ====== */
+/* On préserve le design en compressant l’espace, pas le look */
+@media (max-width: 360px) {
+  .hdr__title {
+    letter-spacing: 0.01em;
+    font-size: 0.95rem;
+  }
+  .hdr__nav {
+    gap: 0.5rem;
+  }
+  .hdr__link {
+    padding: 0.5rem 0.55rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ---- Utilitaires optionnels (si besoin d’icônes-only) ---- */
+/* Ajoute .btn--icon-only à un bouton dans .hdr__ctas pour masquer le label sur mobile */
+@media (max-width: 640px) {
+  .btn--icon-only .btn__label {
+    display: none;
+  }
+  .btn--icon-only {
+    aspect-ratio: 1/1;
+    padding: 0.6rem;
+  }
 }
