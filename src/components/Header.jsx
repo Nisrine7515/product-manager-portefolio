@@ -9,7 +9,7 @@ export default function Header() {
       <div className="hdr__inner container">
         <Link to="/" className="hdr__brand" aria-label="Accueil">
           <span className="hdr__title">
-            My Product Manager Portefolio - Nisrine SNACEL
+            My Product Manager Portfolio - Nisrine SNACEL
           </span>
         </Link>
 
