@@ -33,8 +33,18 @@ const GROUPS = [
     ],
   },
   {
-    title: "Utils",
-    items: ["Jira", "Notion", "Figma", "Amplitude", "Mixpanel", "Looker"],
+    title: "Utils & software",
+    items: [
+      "Javascript",
+      "React",
+      "HTML & CSS",
+      "Jira",
+      "Notion",
+      "Figma",
+      "Amplitude",
+      "Mixpanel",
+      "Looker",
+    ],
   },
 ];
 
