@@ -44,9 +44,7 @@ export default function SkillsSection() {
       <div className="container">
         <div className="section__head">
           <h2 className="section__title">Skills</h2>
-          <p className="section__desc">
-            Un mix of discovery, data et delivery.
-          </p>
+          <p className="section__desc">A mix of discovery, data et delivery.</p>
         </div>
         <div className="grid grid--2">
           {GROUPS.map((g) => (
