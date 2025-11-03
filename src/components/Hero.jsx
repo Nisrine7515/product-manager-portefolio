@@ -43,7 +43,9 @@ export default function Hero({ onContactClick }) {
               </span>
             </div>
             <div className="stat">
-              <span className="stat__num">📚 Always a work in progress </span>
+              <span className="stat__num">
+                📚 Always a work in progress through continous formation{" "}
+              </span>
             </div>
             <div className="stat">
               <span className="stat__num">🛠️ Impact over output</span>
